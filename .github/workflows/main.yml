@@ -7,14 +7,23 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Exécuter une action
         uses: actions/hello-world-docker-action@v2
-        with:
-          ACTIONS_STEP_DEBUG: true
       - name: Add new directory
         run: mkdir new_directory
       - name: List files
