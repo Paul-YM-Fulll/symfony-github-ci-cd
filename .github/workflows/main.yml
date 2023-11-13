@@ -14,7 +14,7 @@ jobs:
       - name: Exécuter une action
         uses: actions/hello-world-docker-action@v2
         with:
-          debug: true
+          ACTIONS_STEP_DEBUG: true
       - name: Add new directory
         run: mkdir new_directory
       - name: List files
