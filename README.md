@@ -28,9 +28,9 @@ This will give you access to the container's command line interface.
 
 ## Installing flyctl
 
-On Mac : `brew install flyctl` or `curl -L https://fly.io/install.sh | sh`
-On Linux : `curl -L https://fly.io/install.sh | sh`
-On Windows : Powershell : `pwsh -Command "iwr https://fly.io/install.ps1 -useb | iex"`
+On Mac : `brew install flyctl` or `curl -L https://fly.io/install.sh | sh` \n
+On Linux : `curl -L https://fly.io/install.sh | sh` \n
+On Windows : Powershell : `pwsh -Command "iwr https://fly.io/install.ps1 -useb | iex"` \n
 
 ## Sign up to Fly, then Sign in
 
