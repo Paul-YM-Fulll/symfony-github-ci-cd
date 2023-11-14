@@ -1,1 +1,1 @@
-
+{     "require": {         "symfony/messenger": "^6.3"     } }
