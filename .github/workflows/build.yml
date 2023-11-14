@@ -8,7 +8,7 @@ on:
       - main
 
 env:
-  SUPER_SECRET_KEY: penis
+  SUPER_SECRET_KEY: muchsecretverywow
 
 jobs:
   build:
