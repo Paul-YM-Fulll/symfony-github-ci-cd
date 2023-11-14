@@ -23,3 +23,27 @@ make docker-sh
 ```
 
 This will give you access to the container's command line interface.
+
+# Integrating Fly.io into your Github actions pipeline
+
+## Installing flyctl
+
+On Mac : `brew install flyctl` or `curl -L https://fly.io/install.sh | sh`
+On Linux : `curl -L https://fly.io/install.sh | sh`
+On Windows : Powershell : `pwsh -Command "iwr https://fly.io/install.ps1 -useb | iex"`
+
+## Sign up to Fly, then Sign in
+
+`fly auth signup`
+
+`fly auth login`
+
+## Generating the FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
+Step 1 : run `flyctl tokens create deploy`
+
+Step 2 : Copy the entire returned token.
+
+Step 3 : Navigate to your github repository -> settings -> Security -> Secrets and Variables
+
+Step 4 : Create the FLY_API_TOKEN secret, with the token being the value
