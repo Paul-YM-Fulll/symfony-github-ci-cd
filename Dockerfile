@@ -28,6 +28,6 @@ RUN chmod +x /usr/local/bin/docker-entrypoint
 
 COPY --link . .
 
-EXPOSE 8000
+EXPOSE 8080
 ENTRYPOINT ["docker-entrypoint"]
-CMD ["symfony", "serve", "--no-tls", "--allow-http", "--port=8000"]
+CMD ["symfony", "serve", "--no-tls", "--allow-http", "--port=8080"]
