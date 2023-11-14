@@ -16,7 +16,7 @@ if [ ! -f composer.json ]; then
     symfony new --webapp tmp
 
     cd tmp
-    rm -rf docker-compose* .git
+    rm -rf compose* .git
     symfony composer require "php:>=$PHP_VERSION"
     symfony composer config --json extra.symfony.docker 'true'
     cp -Rp . ..
