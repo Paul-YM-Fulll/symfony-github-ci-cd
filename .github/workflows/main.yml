@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: Exécuter une action
         uses: actions/hello-world-docker-action@v2
-      - name: Add new directory
-        run: mkdir new_directory
       - name: Checkout
         uses: actions/checkout@v4
       - name: List files
