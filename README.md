@@ -38,6 +38,10 @@ On Windows Powershell : `pwsh -Command "iwr https://fly.io/install.ps1 -useb | i
 
 `fly auth login`
 
+## Launch the fly project
+
+Run `fly launch` and follow the steps
+
 ## Generating the FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
 Step 1 : run `flyctl tokens create deploy`
