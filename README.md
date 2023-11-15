@@ -19,6 +19,7 @@ Once the installation is complete, you can access the project in your web browse
 If you need to access the shell of the Docker container, you can do so by running the following command:
 
 ```bash
+sudo chmod -R 777 .git
 make docker-sh
 ```
 
