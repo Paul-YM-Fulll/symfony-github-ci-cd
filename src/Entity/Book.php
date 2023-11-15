@@ -5,38 +5,46 @@ namespace App\Entity;
 use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Metadata\ApiFilter;
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Doctrine\Orm\Filter\OrderFilter;
 use Symfony\Component\Validator\Constraints as Assert;
-use ApiPlatform\Metadata\ApiProperty;
+use Symfony\Component\Serializer\Annotation\Groups;
 use App\Repository\BookRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ApiResource]
+#[ApiResource(
+    paginationClientItemsPerPage: true,
+    normalizationContext: ['groups' => ['book:read']],
+    denormalizationContext: ['groups' => ['book:write']],
+)]
 #[ApiFilter(SearchFilter::class, properties: ['title' => 'partial'])]
 #[ApiFilter(OrderFilter::class, properties: ['title'])]
 #[ORM\Entity(repositoryClass: BookRepository::class)]
 class Book
 {
+    #[ApiProperty(identifier: true, readable: false)]
+    #[Groups(['book:read'])]
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[Assert\NotBlank]
     #[ORM\Column]
-    #[ApiProperty(readable: false)]
     private ?int $id = null;
 
+    #[Groups(['book:read', 'book:write'])]
     #[ORM\Column(length: 255)]
-    #[ApiProperty(writable: false)]
     private ?string $title = null;
 
+    #[Groups(['book:read', 'book:write'])]
     #[Assert\NotBlank]
     #[Assert\Length(min: 3)]
     #[ORM\Column(length: 255)]
     private ?string $author = null;
 
+    #[Groups(['book:read', 'book:write'])]
     #[Assert\Length(exactly: 4)]
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $year = null;
 
+    #[Groups(['book:read', 'book:write'])]
     #[ORM\ManyToOne]
     private ?Category $category = null;
 
