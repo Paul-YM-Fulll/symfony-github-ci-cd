@@ -1,0 +1,11 @@
+curl -X "POST" \
+  "http://localhost:/api/books" \
+  -H 'Content-Type: application/ld+json' \
+  -H 'Authorization: Bearer ${TOKEN}' \
+  -d '{
+  {
+      "title": "The Hitchhikers Guide to the Galaxy",
+      "author": "Douglas Adams",
+      "year": "1979",
+      "category": "Science Fiction"
+    }}'
